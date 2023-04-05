@@ -29,6 +29,6 @@ function calc() {
 }
 
 function reset() {
-    document.getElementById("answer").textContent = "";
+    document.getElementById("answer").textContent = "数字を入力してください";
     document.getElementById("target").value = "";
 }

@@ -2,9 +2,10 @@ function calc() {
     let target = document.getElementById("target").value;
     const original = target;
 
-    document.getElementById("error").textContent = isValid(target);
-    if (document.getElementById("error").textContent != "") {
-
+    if (isValid(target)) {
+        document.getElementById("error").textContent = "";
+    } else {
+        document.getElementById("error").textContent = "2以上10億以下の整数を入力してください";
         return;
     }
 
@@ -36,13 +37,13 @@ function calc() {
 
 function isValid(target) {
     if (isNaN(target)) {
-        return "数字を入力してください";
+        return false;
     } else if (!Number.isInteger(Number(target))) {
-        return "整数を入力してください";
+        return false;
     } else if (target < 2 || 10000000000 < target) {
-        return "2以上10億以下の数字を入力してください"
+        return false;
     }
-    return "";
+    return true;
 }
 
 function reset() {
